@@ -1,5 +1,6 @@
 from .hotspot import HotSpot
 from .itinerary import Itinerary
-from .UserHotSpot import UserHotSpot
+from .userhotspot import UserHotSpot
+from .modelfactory import model_factory
 
 
