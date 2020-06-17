@@ -6,7 +6,7 @@ from django.urls import reverse
 class HotSpot (models.Model):
 
     name = models.CharField(max_length=50)
-    image = models.CharField(max_length=200)
+    image = models.CharField(max_length=201)
     description = models.CharField(max_length=200)
     activities = models.CharField(max_length=200)
     websiteurl = models.CharField(max_length=200)

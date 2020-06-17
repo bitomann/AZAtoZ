@@ -6,7 +6,7 @@ from django.urls import reverse
 
 class UserHotSpot (models.Model):
 
-    notes = models.CharField(max_length=500)
+    notes = models.CharField(max_length=501)
     visited = models.BooleanField(default=False)
     hotspot = models.ForeignKey(HotSpot, on_delete=models.CASCADE)
     itinerary = models.ForeignKey(Itinerary, on_delete=models.CASCADE)
