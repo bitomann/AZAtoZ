@@ -17,7 +17,7 @@ def get_userhotspots():
 @login_required
 def userhotspot_form(request):
     if request.method == 'GET':
-        libraries = get_libraries()
+        itineraries = get_()
         template = 'userhotspots/form.html'
         context = {
             'all_libraries': libraries
@@ -25,17 +25,17 @@ def userhotspot_form(request):
 
         return render(request, template, context)
     
-@login_required
-def userhotspot_edit_form(request, userhotspot_id):
+# @login_required
+# def userhotspot_edit_form(request, userhotspot_id):
 
-    if request.method == 'GET':
-        userhotspot = get_userhotspot(userhotspot_id)
-        libraries = get_libraries()
+#     if request.method == 'GET':
+#         userhotspot = get_userhotspot(userhotspot_id)
+#         libraries = get_libraries()
 
-        template = 'userhotspots/form.html'
-        context = {
-            'userhotspot': userhotspot,
-            'all_libraries': libraries
-        }
+#         template = 'userhotspots/form.html'
+#         context = {
+#             'userhotspot': userhotspot,
+#             'all_libraries': libraries
+#         }
 
-        return render(request, template, context)
+#         return render(request, template, context)
