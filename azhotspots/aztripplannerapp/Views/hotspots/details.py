@@ -11,10 +11,12 @@ from ..connection import Connection
 def hotspot_details(request, hotspot_id):
     hotspot = HotSpot.objects.get(pk=hotspot_id)
     if request.method == 'GET':
+        itineraries = Itinerary.objects.filter(user=request.auth.user)
 
         template = 'hotspots/details.html'
         context = {
-            'hotspot': hotspot
+            'hotspot': hotspot,
+            'itineraries': itineraries
         }
 
         return render(request, template, context)

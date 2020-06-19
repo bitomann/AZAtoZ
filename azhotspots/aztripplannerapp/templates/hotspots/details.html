@@ -1,0 +1,30 @@
+{% extends 'shared/base.html' %}
+
+{% block content %}
+    <section id="hotspot-details">
+        <h1>{{ hotspot.title }}</h1>
+        <h2>By {{ hotspot.author }}</h2>
+
+        <div>Image  {{ hotspot.image }}</div>
+        <div>Name {{ hotspot.name }}</div>
+        <div>Description: {{ hotspot.description }}</div>
+        <div>Activities {{ hotspot.activities }}</div>
+        <div>Website {{ hotspot.websiteurl }}</div>
+    </section>
+
+    <select id="itinerary_id" name="itinerary_id">add to itinerary...</select>
+    {% for itinerary in itineraries %}
+        <option value="{{intinerary.id}}">{{itinerary.name}}</option>
+    {% endfor %}
+
+    <form action="{% url 'aztripplannerapp:hotspot' hotspot.id %}" method="POST">
+        {% csrf_token %}
+        <input type="hidden" name="actual_method" value="DELETE">
+        <button>Delete</button>
+    </form>
+
+    <form action="{% url 'aztripplannerapp:hotspot_edit_form' hotspot.id %}" method="GET">
+        {% csrf_token %}
+        <button>Edit</button>
+    </form>
+{% endblock %}
