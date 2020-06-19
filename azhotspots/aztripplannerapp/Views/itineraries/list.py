@@ -5,13 +5,13 @@ from django.contrib.auth.decorators import login_required
 
 
 @login_required
-def userhotspot_list(request):
+def itinerary_list(request):
     if request.method == 'GET':
-        all_userhotspots = UserHotSpot.objects.all()
+        all_itineraries = Itinerary.objects.all()
 
-        template = 'userhotspots/list.html'
+        template = 'itineraries/list.html'
         context = {
-            'all_userhotspots': all_userhotspots
+            'all_itineraries': all_itineraries
         }
 
         return render(request, template, context)

@@ -1,13 +1,13 @@
 {% extends 'shared/base.html' %}
 
 {% block content %}
-    <section id="hotspot-details">
+    <section id="userhotspot-details">
         <h1>{{ hotspot.name }}</h1>
         <h2>{{ hotspot.image }}</h2>
 
-        <div>Description {{ hotspot.description }}</div>
-        <div>Activities {{ hotspot.activities }}</div>
-        <div>Website {{ hotspot.websiteurl }}</div>
+        <div>Description: {{ hotspot.description }}</div>
+        <div>Been There {{ userhotspot.visited }}</div>
+        <div>Notes {{ userhotspot.notes }}</div>
     </section>
 
     <select id="itinerary_id" name="itinerary_id">add to itinerary...</select>

@@ -8,10 +8,14 @@ urlpatterns = [
     path('accounts/', include('django.contrib.auth.urls')),
     path('logout/', logout_user, name='logout'),
     path('', home, name='home'),
-    # path('hotspots/', hotspot_list, name='hotspots'),
-    # path('itineraries/', itinerary_list, name='itineraries'),
-    path('libraries/', library_list, name='libraries'),
-    path('book/form', book_form, name='book_form'),
-    path('books/<int:book_id>/', book_details, name='book'),
-    path('books/<int:book_id>/form/', book_edit_form, name='book_edit_form'),
+    path('hotspots/', hotspot_list, name='hotspots'),
+    path('itineraries/', itinerary_list, name='itineraries'),
+    path('userhotspots/', userhotspot_list, name='userhotspots'),
+    path('hotspots/<int:hotspot_id>/', hotspot_details, name='hotspot'),
+    # path('userhotspots/<int:userhotspot_id>/', userhotspot_details, name='userhotspot'),
+
+    # path('userhotspot/form', userhotspot_form, name='userhotspot_form'),
+    # path('userhotspots/<int:userhotspot_id>/form/', userhotspot_edit_form, name='userhotspot_edit_form'),
 ]
+# The <int:hotspot_id> part of that URL pattern is used to capture any integer that 
+# is the route parameter, and stores that number in the hotspot_id variable.
