@@ -13,28 +13,28 @@
         <button class="closeDialog">Close</button>
     </dialog>
 
-    <a href="{% url 'aztripplannerapp:userhotspots_form' %}">Add Your Own HotsPot!</a>
+    {% comment %} <a href="{% url 'aztripplannerapp:userhotspots_form' %}">Add Your Own HotsPot!</a> {% endcomment %}
 
     <ol class="hotspots">
-    {% for hotspots in all_hotspots %}
+    {% for hotspot in all_hotspots %}
         <li class="hotspot">
             <a class="hotspot__name" href="{% url 'aztripplannerapp:hotspot' hotspot.id %}">
              {{ hotspot.name }}
             </a>
-            <div class="hotspot__image">
+            {% comment %} <div class="hotspot__image">
                 {{hotspot.image}}
-            </div>
-            <div class="hotspot__description">
-                {{hotspot.description}}
-            </div>
-            <div class="hotspot__activities">
-                Things To Do Here:{{hotspot.activities}}
-            </div>
-            <div class="hotspot__websiteurl">
+            </div> {% endcomment %}
+            <p class="hotspot__description">
+                DESCRIPTION: {{hotspot.description}}
+            </p>
+            <p class="hotspot__activities">
+                THINGS TO DO HERE: {{hotspot.activities}}
+            </p>
+            <p class="hotspot__websiteurl">WEBSITE: 
                 {{hotspot.websiteurl}}
-            </div>
-            <button id="detail--{{ hotspot.id }}">Details</button>
+            </p>
         </li>
+        <br>
     {% endfor %}
     </ol>
 {% endblock %}

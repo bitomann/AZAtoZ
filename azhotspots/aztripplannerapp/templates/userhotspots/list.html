@@ -18,8 +18,8 @@
     <ol class="userhotspots">
     {% for userhotspots in all_userhotspots %}
         <li class="userhotspots">
-            <a class="userhotspots__name" href="{% url 'aztripplannerapp:userhotspots' userhotspots.id %}">
-             {{ userhotspots.name }}
+            <a class="userhotspots__name" href="{% url 'aztripplannerapp:hotspot' userhotspots.id %}">
+             Name: {{ userhotspots.name }}
             </a>
             <div class="userhotspots__image">
                 {{userhotspots.image}}
@@ -28,13 +28,14 @@
                 {{userhotspots.description}}
             </div>
             <div class="userhotspots__activities">
-                Things To Do Here:{{userhotspots.activities}}
+                Things To Do Here: {{userhotspots.activities}}
             </div>
             <div class="userhotspots__websiteurl">
                 {{userhotspots.websiteurl}}
             </div>
             <button id="detail--{{ userhotspots.id }}">Details</button>
         </li>
+        <br>
     {% endfor %}
     </ol>
 {% endblock %}

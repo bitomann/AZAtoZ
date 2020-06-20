@@ -2,7 +2,7 @@
 import sqlite3
 from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
-from aztripplannerapp.models import HotSpot, UserHotSpots, Itinerary
+from aztripplannerapp.models import HotSpot, UserHotSpot, Itinerary
 
 
 @login_required
