@@ -1,0 +1,44 @@
+{% extends 'shared/base.html' %}
+{% load static %}
+
+{% block css %}
+    <link rel="stylesheet" href="{% static 'styles/hotspots.css' %}" />
+{% endblock %}
+
+{% block content %}
+    <h1>HotsPots</h1>
+
+    <dialog class="infoDialog">
+        <div class="infoDialog__message"></div>
+        <button class="closeDialog">Close</button>
+    </dialog>
+
+    {% comment %} <a href="{% url 'aztripplannerapp:userhotspots_form' %}">Add Your Own HotsPot!</a> {% endcomment %}
+
+    <ol class="hotspots">
+    {% for hotspot in all_hotspots %}
+        <li class="hotspot">
+            <a class="hotspot__name" href="{% url 'aztripplannerapp:hotspot' hotspot.id %}">
+             {{ hotspot.name }}
+            </a>
+            {% comment %} <div class="hotspot__image">
+                {{hotspot.image}}
+            </div> {% endcomment %}
+            <p class="hotspot__description">
+                DESCRIPTION: {{hotspot.description}}
+            </p>
+            <p class="hotspot__activities">
+                THINGS TO DO HERE: {{hotspot.activities}}
+            </p>
+            <p class="hotspot__websiteurl">WEBSITE: 
+                {{hotspot.websiteurl}}
+            </p>
+        </li>
+        <br>
+    {% endfor %}
+    </ol>
+{% endblock %}
+
+{% block scripts %}
+    <script src="{% static 'scripts/hotspots.js' %}"></script>
+{% endblock %}

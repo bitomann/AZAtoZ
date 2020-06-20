@@ -1,16 +1,15 @@
 from django.db import models
 from .itinerary import Itinerary
-from .user import User
 from django.urls import reverse
 
 
 class HotSpot (models.Model):
 
     name = models.CharField(max_length=50)
-    image = models.CharField
+    image = models.CharField(max_length=201)
     description = models.CharField(max_length=200)
-    activities = models.CharField
-    websiteurl = models.CharField
+    activities = models.CharField(max_length=200)
+    websiteurl = models.CharField(max_length=200)
 
     class Meta:
         verbose_name = ("hotspot")

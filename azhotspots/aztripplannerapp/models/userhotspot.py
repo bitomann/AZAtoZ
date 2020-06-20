@@ -1,14 +1,13 @@
 from django.db import models
 from .hotspot import HotSpot
 from .itinerary import Itinerary
-from .user import User
 from django.urls import reverse
 
 
 class UserHotSpot (models.Model):
 
-    notes = models.CharField
-    visited = models.BooleanField
+    notes = models.CharField(max_length=501)
+    visited = models.BooleanField(default=False)
     hotspot = models.ForeignKey(HotSpot, on_delete=models.CASCADE)
     itinerary = models.ForeignKey(Itinerary, on_delete=models.CASCADE)
 
