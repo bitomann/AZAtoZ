@@ -1,0 +1,32 @@
+{% extends 'shared/base.html' %}
+{% load static %}
+
+{% block css %}
+    <link rel="stylesheet" href="{% static 'styles/itineraries.css' %}" />
+{% endblock %}
+
+{% block content %}
+    <h1>Itineraries</h1>
+
+    <dialog class="infoDialog">
+        <div class="infoDialog__message"></div>
+        <button class="closeDialog">Close</button>
+    </dialog>
+
+    {% comment %} <a href="{% url 'aztripplannerapp:itinerary_form' %}">Add New Itineraries!</a> {% endcomment %}
+
+    <ol class="Itineraries">
+    {% for itineraries in all_itineraries %}
+        <li class="itinerary">
+            <a class="itinerary__name" href="{% url 'aztripplannerapp:itinerary itinerary.id' %}">
+             {{ itinerary.name }}
+            </a>
+        </li>
+        <br>
+    {% endfor %}
+    </ol>
+{% endblock %}
+
+{% block scripts %}
+    <script src="{% static 'scripts/itineraries.js' %}"></script>
+{% endblock %}
