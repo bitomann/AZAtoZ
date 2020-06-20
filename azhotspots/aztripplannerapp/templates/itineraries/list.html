@@ -16,7 +16,7 @@
     {% comment %} <a href="{% url 'aztripplannerapp:itinerary_form' %}">Add New Itineraries!</a> {% endcomment %}
 
     <ol class="Itineraries">
-    {% for itineraries in all_itineraries %}
+    {% for itinerary in all_itineraries %}
         <li class="itinerary">
             <a class="itinerary__name" href="{% url 'aztripplannerapp:itinerary itinerary.id' %}">
              {{ itinerary.name }}
