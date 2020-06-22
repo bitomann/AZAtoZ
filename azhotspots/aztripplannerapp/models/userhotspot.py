@@ -16,7 +16,7 @@ class UserHotSpot(models.Model):
         verbose_name_plural = ("userhotspots")
 
     def __str__(self):
-        return self.title
+        return f"{self.notes}\n{self.visited}\n{self.hotspot}"
 
     def get_absolute_url(self):
         return reverse("userhotspot_detail", kwargs={"pk": self.pk})

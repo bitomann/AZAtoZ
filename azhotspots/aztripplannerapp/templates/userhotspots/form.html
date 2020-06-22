@@ -1,0 +1,45 @@
+{% extends 'shared/base.html' %}
+
+{% block content %}
+    <h1>Your Hot Spots</h1>
+
+
+    {% if userhotspot.id is not None %}
+        <form action="{% url 'libraryapp:userhotspot' userhotspot.id %}" method="post">
+          <input type="hidden" name="actual_method" value="PUT">
+    {% else %}
+        <form action="{% url 'libraryapp:userhotspots' %}" method="post">
+    {% endif %}
+      {% csrf_token %}
+      <fieldset>
+          <label for="name">Hot Spot Name: </label>
+          <input id="name" type="text" name="name" value="{{hotspot.name}}">
+      </fieldset>
+      <fieldset>
+          <label for="image">Upload Image: </label>
+          <input id="image" type="text" name="image" value="{{hotspot.image}}">
+      </fieldset>
+      <fieldset>
+          <label for="description">Description: </label>
+          <input id="description" type="text" name="description" value="{{hotspot.description}}">
+      </fieldset>
+      <fieldset>
+          <label for="activities">Activities: </label>
+          <input id="activities" type="text" name="activities" value="{{hotspot.activities}}">
+      </fieldset>
+      <fieldset>
+          <label for="websiteurl">URL: </label>
+          <input id="websiteurl" type="text" name="websiteurl"  value="{{hotspot.websiteurl}}">
+      </fieldset>
+      <fieldset>
+          <label for="itinerary">Itinerary: </label>
+          <select id="itinerary" type="text" name="itinerary">
+                {% for itinerary in all_itineraries %}
+                    <option {% if itinerary.id == hotspot.itinerary_id %}selected{% endif %} value="{{ itinerary.id }}">{{ hotspot.name }}</option>
+                {% endfor %}
+          </select>
+      </fieldset>
+
+      <input type="submit" value="Submit" />
+    </form>
+{% endblock %}
