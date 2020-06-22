@@ -18,7 +18,7 @@
     <ol class="Itineraries">
     {% for itinerary in all_itineraries %}
         <li class="itinerary">
-            <a class="itinerary__name" href="{% url 'aztripplannerapp:itinerary itinerary.id' %}">
+            <a class="itinerary__name" href="{% url 'aztripplannerapp:itinerary' itinerary.id %}">
              {{ itinerary.name }}
             </a>
         </li>

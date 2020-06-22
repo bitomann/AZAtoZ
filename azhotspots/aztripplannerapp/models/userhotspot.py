@@ -4,7 +4,7 @@ from .itinerary import Itinerary
 from django.urls import reverse
 
 
-class UserHotSpot (models.Model):
+class UserHotSpot(models.Model):
 
     notes = models.CharField(max_length=501)
     visited = models.BooleanField(default=False)
