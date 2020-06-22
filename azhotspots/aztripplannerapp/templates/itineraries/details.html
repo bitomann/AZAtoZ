@@ -1,15 +1,18 @@
 {% extends 'shared/base.html' %}
 
 {% block content %}
-    <section id="itinerary-details">
+    {% for hotspot in itinerary_hotspots %}
+    <li>{{hotspot.notes}}</li>
+    {% endfor %}
+    {% comment %} <section id="itinerary-details">
         <h1>{{ itinerary.name }}</h1>
           <li class="hotspot">
             <a class="hotspot__name" href="{% url 'aztripplannerapp:hotspot' hotspot.id %}">
              {{ hotspot.name }}
             </a>
-            {% comment %} <div class="hotspot__image">
+            <div class="hotspot__image">
                 {{hotspot.image}}
-            </div> {% endcomment %}
+            </div>
             <p class="hotspot__description">
                 DESCRIPTION: {{hotspot.description}}
             </p>
@@ -20,5 +23,5 @@
                 {{hotspot.websiteurl}}
             </p>
         </li>
-    </section>
+    </section> {% endcomment %}
 {% endblock %}
