@@ -1,7 +1,7 @@
 import sqlite3
 from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
-from azhotspots.aztripplannerapp.models import HotSpot, UserHotSpots, Itinerary
+from aztripplannerapp.models import HotSpot, UserHotSpot, Itinerary
 
 
 @login_required
@@ -14,7 +14,7 @@ def get_itineraries():
 
 @login_required
 def get_userhotspots():
-    return UserHotSpots.objects.all()
+    return UserHotSpot.objects.all()
 
 
 @login_required

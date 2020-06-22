@@ -13,7 +13,7 @@
         <button class="closeDialog">Close</button>
     </dialog>
 
-    <a href="{% url 'aztripplannerapp:itinerary_form' %}">Add New Itineraries!</a>
+    {% comment %} <a href="{% url 'aztripplannerapp:itinerary_form' %}">Add New Itineraries!</a> {% endcomment %}
 
     <ol class="Itineraries">
     {% for itinerary in all_itineraries %}
@@ -21,20 +21,8 @@
             <a class="itinerary__name" href="{% url 'aztripplannerapp:itinerary' itinerary.id %}">
              {{ itinerary.name }}
             </a>
-            <div class="itinerary__image">
-                {{itinerary.image}}
-            </div>
-            <div class="itinerary__description">
-                {{itinerary.description}}
-            </div>
-            <div class="itinerary__activities">
-                Things To Do Here:{{itinerary.activities}}
-            </div>
-            <div class="itinerary__websiteurl">
-                {{itinerary.websiteurl}}
-            </div>
-            <button id="detail--{{ itinerary.id }}">Details</button>
         </li>
+        <br>
     {% endfor %}
     </ol>
 {% endblock %}

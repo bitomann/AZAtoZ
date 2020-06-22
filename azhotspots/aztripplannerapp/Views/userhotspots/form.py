@@ -15,13 +15,13 @@ def get_itineraries():
 
 @login_required
 def get_userhotspots():
-    return UserHotSpots.objects.all()
+    return UserHotSpot.objects.all()
 
 
 @login_required
 def userhotspot_form(request):
     if request.method == 'GET':
-        hotspots = get_hotspots()
+        hotspots = get_hotspots(request)
         itineraries = get_itineraries()
         template = 'userhotspots/form.html'
         context = {
