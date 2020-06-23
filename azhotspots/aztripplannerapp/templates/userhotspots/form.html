@@ -5,7 +5,7 @@
 
 
     {% if userhotspot.id is not None %}
-        <form action="{% url 'aztripplannerapp:userhotspot' userhotspot.id %}" method="post">
+        <form action="{% url 'aztripplannerapp:userhotspots' userhotspot.id %}" method="post">
           <input type="hidden" name="actual_method" value="PUT">
     {% else %}
         <form action="{% url 'aztripplannerapp:userhotspots' %}" method="post">
@@ -32,8 +32,19 @@
           <input id="websiteurl" type="text" name="websiteurl"  value="{{hotspot.websiteurl}}">
       </fieldset>
       <fieldset>
+          <label for="visited">Been there?: </label>
+          <select id="visited" name="visited">
+            <option value=True>Yes!</option>
+            <option value=False>No☹️</option>
+          </select>
+      </fieldset>
+      <fieldset>
+          <label for="notes">Notes: </label>
+          <input id="notes" type="textarea" name="notes"  value="{{userhotspot.notes}}">
+      </fieldset>
+      <fieldset>
           <label for="itinerary">Itinerary: </label>
-          <select id="itinerary_id" type="text" name="itinerary">
+          <select id="itinerary_id" name="itinerary_id">
                 {% for itinerary in user_itineraries %}
                     <option  
                     value="{{ itinerary.id }}">{{itinerary.name}}</option>

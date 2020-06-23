@@ -34,11 +34,11 @@ def userhotspot_list(request):
         )
 
         new_userhotspot = UserHotSpot.objects.create(
-            # visited = form_data['visited'],
-            # notes = form_data['notes'],
+            visited = form_data['visited'],
+            notes = form_data['notes'],
             hotspot_id = new_hotspot.id,
             itinerary_id = form_data['itinerary_id']
         )
         
 
-        return redirect(reverse('aztripplannerapp:hotspot', args=[new_hotspot.id]))
+        return redirect(reverse('aztripplannerapp:userhotspots'))
