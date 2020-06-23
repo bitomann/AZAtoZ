@@ -21,7 +21,7 @@ def get_userhotspots():
 @login_required
 def userhotspot_form(request):
     if request.method == 'GET':
-        hotspots = get_hotspots(request)
+        hotspots = get_hotspots()
         itineraries = get_itineraries()
         template = 'userhotspots/form.html'
         context = {
