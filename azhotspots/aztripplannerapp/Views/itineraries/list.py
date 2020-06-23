@@ -8,7 +8,6 @@ from django.contrib.auth.decorators import login_required
 def itinerary_list(request):
     if request.method == 'GET':
         all_itineraries = Itinerary.objects.filter(user=request.user)
-        print("TESTXXXXXXX", all_itineraries)
 
         template = 'itineraries/list.html'
         context = {
