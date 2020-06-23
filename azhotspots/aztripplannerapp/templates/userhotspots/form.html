@@ -5,10 +5,10 @@
 
 
     {% if userhotspot.id is not None %}
-        <form action="{% url 'libraryapp:userhotspot' userhotspot.id %}" method="post">
+        <form action="{% url 'aztripplannerapp:userhotspot' userhotspot.id %}" method="post">
           <input type="hidden" name="actual_method" value="PUT">
     {% else %}
-        <form action="{% url 'libraryapp:userhotspots' %}" method="post">
+        <form action="{% url 'aztripplannerapp:userhotspots' %}" method="post">
     {% endif %}
       {% csrf_token %}
       <fieldset>

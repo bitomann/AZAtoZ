@@ -13,8 +13,8 @@
         <button class="closeDialog">Close</button>
     </dialog>
 
-    {% comment %} <a href="{% url 'aztripplannerapp:userhotspots_form' %}">Add Your Own HotsPot!</a> {% endcomment %}
-
+    <a href="{% url 'aztripplannerapp:userhotspots_form' %}">Add Your Own HotsPot!</a>
+    
     <ol class="hotspots">
     {% for hotspot in all_hotspots %}
         <li class="hotspot">
