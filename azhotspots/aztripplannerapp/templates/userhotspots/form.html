@@ -16,8 +16,8 @@
           <input id="name" type="text" name="name" value="{{hotspot.name}}">
       </fieldset>
       <fieldset>
-          <label for="image">Upload Image: </label>
-          <input id="image" type="text" name="image" value="{{hotspot.image}}">
+          <label for="image">Pic: </label>
+          <button id="image" type="text" name="image" value="{{hotspot.image}}">Image upload...</button>
       </fieldset>
       <fieldset>
           <label for="description">Description: </label>
@@ -33,9 +33,10 @@
       </fieldset>
       <fieldset>
           <label for="itinerary">Itinerary: </label>
-          <select id="itinerary" type="text" name="itinerary">
-                {% for itinerary in all_itineraries %}
-                    <option {% if itinerary.id == hotspot.itinerary_id %}selected{% endif %} value="{{ itinerary.id }}">{{ hotspot.name }}</option>
+          <select id="itinerary_id" type="text" name="itinerary">
+                {% for itinerary in user_itineraries %}
+                    <option  
+                    value="{{ itinerary.id }}">{{itinerary.name}}</option>
                 {% endfor %}
           </select>
       </fieldset>
