@@ -7,14 +7,14 @@ from aztripplannerapp.models import HotSpot, Itinerary, UserHotSpot
 
 @login_required
 def itinerary_details(request, itinerary_id):
-    itinerary = Itinerary.objects.get(pk=itinerary_id)
+    itinerary = Itinerary.objects.get(pk=itinerary_id, user=request.user.id,)
     if request.method == 'GET':
-        itineraries = Itinerary.objects.filter(user=request.user.id)
+        itinerary_hotspots = UserHotSpot.objects.filter(itinerary=itinerary.id)
 
         template = 'itineraries/details.html'
         context = {
             'itinerary': itinerary,
-            'itineraries': itineraries
+            'itinerary_hotspots': itinerary_hotspots
         }
 
         return render(request, template, context)
