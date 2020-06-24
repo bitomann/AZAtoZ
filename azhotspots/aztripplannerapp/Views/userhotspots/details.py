@@ -18,3 +18,19 @@ def userhotspot_details(request, userhotspot_id):
         }
 
         return render(request, template, context)
+
+    if request.method == 'POST':
+
+        form_data = request.POST
+
+        if (
+            'actual_method' in form_data
+            and form_data['actual_method'] == 'PUT'
+        ):
+            userhotspot.visited = form_data['visited']
+            userhotspot.notes = form_data['notes']
+            userhotspot.save()
+
+        return redirect(reverse('aztripplannerapp:userhotspots'))
+
+    

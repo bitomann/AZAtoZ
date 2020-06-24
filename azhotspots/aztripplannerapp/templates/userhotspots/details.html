@@ -25,4 +25,9 @@
         {% csrf_token %}
         <button>Edit</button>
     </form>
+        <form action="{% url 'aztripplannerapp:userhotspot' userhotspot.id %}" method="POST">
+        {% csrf_token %}
+        <input type="hidden" name="actual_method" value="DELETE">
+        <button>Delete</button>
+    </form>
 {% endblock %}

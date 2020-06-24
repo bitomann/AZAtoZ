@@ -27,18 +27,19 @@ def userhotspot_form(request):
         }
 
         return render(request, template, context)
+        
     
 @login_required
 def userhotspot_edit_form(request, userhotspot_id):
 
     if request.method == 'GET':
-        userhotspot = UserHotSpot.objects.filter(userhotspot_id)
-        hotspot = get_hotspots
+        userhotspot = UserHotSpot.objects.get(pk=userhotspot_id)
+        hotspot = get_hotspots()
 
         template = 'userhotspots/edit_form.html'
         context = {
             'userhotspot': userhotspot,
-            'hotspot': get_hotspots
+            'hotspot': hotspot
         }
 
         return render(request, template, context)
