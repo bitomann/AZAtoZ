@@ -32,7 +32,7 @@
                 THINGS TO DO HERE: {{userhotspot.hotspot.activities}}
             </p>
             <p class="hotspot__visited">
-                BEEN THERE DONE THAT? {{userhotspots.visited}}
+                BEEN THERE DONE THAT? {{userhotspot.visited}}
             <p class="userhotspot__notes">NOTES: 
                 {{userhotspot.notes}}
             </p>
@@ -40,6 +40,10 @@
         <br>
     {% endfor %}
     </ol>
+    {% comment %} <form action="{% url 'aztripplannerapp:book_edit_form' book.id %}" method="GET">
+        {% csrf_token %}
+        <button>Edit</button>
+    </form> {% endcomment %}
 {% endblock %}
 
 {% block scripts %}

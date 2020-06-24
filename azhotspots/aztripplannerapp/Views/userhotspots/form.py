@@ -32,13 +32,13 @@ def userhotspot_form(request):
 # def userhotspot_edit_form(request, userhotspot_id):
 
 #     if request.method == 'GET':
-#         userhotspot = get_userhotspot(userhotspot_id)
-#         libraries = get_libraries()
+#         userhotspot = get_userhotspots(userhotspot_id)
+#         hotspot = get_hotspots
 
 #         template = 'userhotspots/form.html'
 #         context = {
 #             'userhotspot': userhotspot,
-#             'all_libraries': libraries
+#             'hotspot': get_hotspots
 #         }
 
 #         return render(request, template, context)
