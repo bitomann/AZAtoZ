@@ -12,26 +12,6 @@
     {% endif %}
       {% csrf_token %}
       <fieldset>
-          <label for="name">Hot Spot Name: </label>
-          <input id="name" type="text" name="name" value="{{hotspot.name}}">
-      </fieldset>
-      {% comment %} <fieldset>
-          <label for="image">Pic: </label>
-          <button id="image" type="text" name="image" value="{{hotspot.image}}">Image upload...</button>
-      </fieldset> {% endcomment %}
-      <fieldset>
-          <label for="description">Description: </label>
-          <input id="description" type="text" name="description" value="{{hotspot.description}}">
-      </fieldset>
-      <fieldset>
-          <label for="activities">Activities: </label>
-          <input id="activities" type="text" name="activities" value="{{hotspot.activities}}">
-      </fieldset>
-      <fieldset>
-          <label for="websiteurl">URL: </label>
-          <input id="websiteurl" type="text" name="websiteurl"  value="{{hotspot.websiteurl}}">
-      </fieldset>
-      <fieldset>
           <label for="visited">Been there?: </label>
           <select id="visited" name="visited">
             <option value=True>Yes!</option>
