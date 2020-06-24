@@ -19,7 +19,7 @@
     {% for userhotspot in all_userhotspots %}
     {% comment %} {%  for hotspot in all_hotspots %} {% endcomment %}
         <li class="userhotspot">
-            <a class="userhotspots__name" href="{% url 'aztripplannerapp:hotspot' userhotspot.id %}">
+            <a class="userhotspots__name" href="{% url 'aztripplannerapp:userhotspot' userhotspot.hotspot_id %}">
                  {{ userhotspot.hotspot.name }}
             </a>
             {% comment %} <div class="hotspot__image">

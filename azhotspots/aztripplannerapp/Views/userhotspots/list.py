@@ -23,6 +23,7 @@ def userhotspot_list(request):
         return render(request, template, context)
     
     elif request.method == 'POST':
+        
         form_data = request.POST
         
         new_hotspot = HotSpot.objects.create(
