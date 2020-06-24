@@ -37,13 +37,13 @@
                 {{userhotspot.notes}}
             </p>
         </li>
+    <form action="{% url 'aztripplannerapp:userhotspots_edit_form' userhotspot.id %}" method="GET">
+        {% csrf_token %}
+        <button>Edit</button>
+    </form>
         <br>
     {% endfor %}
     </ol>
-    {% comment %} <form action="{% url 'aztripplannerapp:book_edit_form' book.id %}" method="GET">
-        {% csrf_token %}
-        <button>Edit</button>
-    </form> {% endcomment %}
 {% endblock %}
 
 {% block scripts %}

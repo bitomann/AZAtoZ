@@ -21,7 +21,7 @@
         <button>Delete</button>
     </form>
 
-    <form action="{% url 'aztripplannerapp:hotspot_edit_form' hotspot.id %}" method="GET">
+    <form action="{% url 'aztripplannerapp:userhotspot/edit_form' userhotspot.id %}" method="GET">
         {% csrf_token %}
         <button>Edit</button>
     </form>
