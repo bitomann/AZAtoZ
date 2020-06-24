@@ -19,7 +19,7 @@ def userhotspot_details(request, userhotspot_id):
 
         return render(request, template, context)
 
-    if request.method == 'POST':
+    elif request.method == 'POST':
 
         form_data = request.POST
 
@@ -31,6 +31,17 @@ def userhotspot_details(request, userhotspot_id):
             userhotspot.notes = form_data['notes']
             userhotspot.save()
 
-        return redirect(reverse('aztripplannerapp:userhotspots'))
+            return redirect(reverse('aztripplannerapp:userhotspots'))
 
+
+        if (
+            "actual_method" in form_data
+            and form_data["actual_method"] == "DELETE"
+        ):
+            print(userhotspot)
+            userhotspot.delete()
+
+            return redirect(reverse('aztripplannerapp:userhotspots'))
+
+        # Check if this POST is for editing a book
     

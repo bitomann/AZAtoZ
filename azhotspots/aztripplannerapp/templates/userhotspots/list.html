@@ -19,7 +19,7 @@
     {% for userhotspot in all_userhotspots %}
     {% comment %} {%  for hotspot in all_hotspots %} {% endcomment %}
         <li class="userhotspot">
-            <a class="userhotspots__name" href="{% url 'aztripplannerapp:userhotspot' userhotspot.hotspot_id %}">
+            <a class="userhotspots__name" href="{% url 'aztripplannerapp:userhotspot_details' userhotspot.id %}">
                  {{ userhotspot.hotspot.name }}
             </a>
             {% comment %} <div class="hotspot__image">
@@ -37,10 +37,10 @@
                 {{userhotspot.notes}}
             </p>
         </li>
-    <form action="{% url 'aztripplannerapp:userhotspots_edit_form' userhotspot.id %}" method="GET">
+    {% comment %} <form action="{% url 'aztripplannerapp:userhotspots_edit_form' userhotspot.id %}" method="GET">
         {% csrf_token %}
         <button>Edit</button>
-    </form>
+    </form> {% endcomment %}
         <br>
     {% endfor %}
     </ol>

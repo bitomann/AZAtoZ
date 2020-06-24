@@ -5,29 +5,30 @@
         <h1>{{ hotspot.name }}</h1>
         <h2>{{ hotspot.image }}</h2>
 
-        <div>Description: {{ hotspot.description }}</div>
-        <div>Been There {{ userhotspot.visited }}</div>
-        <div>Notes {{ userhotspot.notes }}</div>
+        <div>DESCRIPTION: {{ hotspot.description }}</div>
+        <div>BEEN THERE DONE THAT? {{ userhotspot.visited }}</div>
+        <div>NOTES: {{ userhotspot.notes }}</div>
     </section>
 
-    <select id="itinerary_id" name="itinerary_id">add to itinerary...</select>
+    {% comment %} <select id="itinerary_id" name="itinerary_id">add to itinerary...</select>
     {% for itinerary in itineraries %}
         <option value="{{intinerary.id}}">{{itinerary.name}}</option>
-    {% endfor %}
+    {% endfor %} {% endcomment %}
 
-    <form action="{% url 'aztripplannerapp:hotspot' hotspot.id %}" method="POST">
+    {% comment %} <form action="{% url 'aztripplannerapp:userhotspot_details' userhotspot.id %}" method="POST">
+        {% csrf_token %}
+        <input type="hidden" name="actual_method" value="DELETE">
+        <button>Delete</button>
+    </form> {% endcomment %}
+
+    <form action="{% url 'aztripplannerapp:userhotspot_details' userhotspot.id %}" method="POST">
         {% csrf_token %}
         <input type="hidden" name="actual_method" value="DELETE">
         <button>Delete</button>
     </form>
 
-    <form action="{% url 'aztripplannerapp:userhotspot/edit_form' userhotspot.id %}" method="GET">
+    <form action="{% url 'aztripplannerapp:userhotspots_edit_form' userhotspot.id %}" method="GET">
         {% csrf_token %}
         <button>Edit</button>
-    </form>
-        <form action="{% url 'aztripplannerapp:userhotspot' userhotspot.id %}" method="POST">
-        {% csrf_token %}
-        <input type="hidden" name="actual_method" value="DELETE">
-        <button>Delete</button>
     </form>
 {% endblock %}
