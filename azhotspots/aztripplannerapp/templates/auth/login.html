@@ -2,14 +2,12 @@
 {% extends 'shared/base.html' %}
 
 {% block content %}
-    <h3 class="login_header">Login</h3>
-            {% csrf_token %}
-    <fieldset>
+    <h3 class="page-header">Login</h3>
+    <div class="form-div">
         <form class="form" method="post">
-            <p class="register-text">To Register Your New Account <a href="{% url 'aztripplannerapp:register' %}" class="register">Click Me!</a>.</p>
-            <div class="form-button-container">
-                <button type="submit" class="submit">Login</button>
-            </div>
+            {% csrf_token %}
+            <p class="register-text">New To AZAtoZ? Register <a href="{% url 'actnaturalapp:register' %}" class="registration-link">Click Me!</a>.</p>
+                <button type="submit" class="waves-effect waves-light btn">Login</button>
         </form>
-    </fieldset>
+    </div>
 {% endblock content %}

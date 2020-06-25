@@ -16,11 +16,16 @@
 
     <nav id="site-nav">
         <ol class="navList">
+        {% if request.user.is_authenticated %}
             <li class="navList__route"><a href="{% url 'aztripplannerapp:home' %}">Home</a></li>
             <link rel="stylesheet" href="{% static 'styles/login.css' %}" type="text/css" media="screen" />
             <li class="navList__route"><a href="{% url 'aztripplannerapp:hotspots' %}">HotsPots</a></Hi>
             <li class="navList__route"><a href="{% url 'aztripplannerapp:userhotspots' %}">Your HotsPots</a></Hi>
             <li class="navList__route"><a href="{% url 'aztripplannerapp:itineraries' %}">Itineraries</a></li>
+            <li class="navList__route"><a href="{% url 'aztripplannerapp:logout' %}">Logout</a></li>
+        {% else %}
+            <li><a class="nav-link" href="{% url 'aztripplannerapp:login' %}">Login</a></li>
+        {% endif %}
         </ol>
     </nav>
 
