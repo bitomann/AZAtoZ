@@ -12,7 +12,7 @@ urlpatterns = [
     path('accounts/', include('django.contrib.auth.urls')),
     path('logout/', logout_user, name='logout'),
     path('accounts/register/', register, name='register'),
-    # path('accounts/login/', login_user, name='login'),
+    path('accounts/login/', login_user, name='login'),
     path('', home, name='home'),
 
     path('hotspots/', hotspot_list, name='hotspots'),

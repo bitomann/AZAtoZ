@@ -3,11 +3,15 @@ from django.urls import reverse
 from django.contrib import messages
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login
+from django.contrib.auth.forms import UserCreationForm
 from aztripplannerapp.models import HotSpot, UserHotSpot, Itinerary
 from django.forms import ValidationError
 
 
 def register(request):
+    form = UserCreationForm(request.POST)
+    # if form.is_valid():
+    #     form.save()
     if request.method == 'POST':
         form_data = request.POST
         
@@ -20,7 +24,7 @@ def register(request):
                 password=form_data['password'],
             )
 
-            User.save()
+            form.save()
             
             user = authenticate(request, username=form_data['username'], password=form_data['password'])
             if user is not None:
@@ -29,10 +33,10 @@ def register(request):
         except Exception as e:
             messages.error(request, e)
                 
-    userhotspot = UserHotSpot.objects.all()
-    template = 'auth/register.html'
+    userregister = User.objects.all()
+    template = 'auth/register.html', {'form': form}
     context = {
-        'userhotspot': userhotspot
+        'userregister': userregister
     }
 
     return render(request, template, context)
