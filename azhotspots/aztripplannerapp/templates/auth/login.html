@@ -1,0 +1,15 @@
+  
+{% extends 'shared/base.html' %}
+
+{% block content %}
+    <h3 class="login_header">Login</h3>
+            {% csrf_token %}
+    <fieldset>
+        <form class="form" method="post">
+            <p class="register-text">To Register Your New Account <a href="{% url 'aztripplannerapp:register' %}" class="register">Click Me!</a>.</p>
+            <div class="form-button-container">
+                <button type="submit" class="submit">Login</button>
+            </div>
+        </form>
+    </fieldset>
+{% endblock content %}

@@ -1,5 +1,7 @@
 from .home import home
 from .auth.logout import logout_user
+from .auth.register import register
+# from .auth.login import login_user, admin_user
 from .hotspots.list import hotspot_list
 from .hotspots.details import hotspot_details
 from .userhotspots.list import userhotspot_list
