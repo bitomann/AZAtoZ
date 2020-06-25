@@ -8,6 +8,10 @@
 {% block content %}
     <h1>HotsPots</h1>
 
+    {% comment %} <form action={% url 'search_results'%} method='GET'>
+        <input name='q' type='text' placeholder='search for HotSpot'>
+    </form> {% endcomment %}
+
     <dialog class="infoDialog">
         <div class="infoDialog__message"></div>
         <button class="closeDialog">Close</button>

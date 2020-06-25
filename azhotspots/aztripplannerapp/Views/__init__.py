@@ -1,4 +1,6 @@
 from .home import home
+# from .hotspots.list import SearchResultsView
+# from hotspot.form import SearchForm
 from .auth.logout import logout_user
 from .auth.register import register
 from .auth.login import login_user, admin_user
