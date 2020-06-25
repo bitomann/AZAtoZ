@@ -22,6 +22,7 @@
             <li class="navList__route"><a href="{% url 'aztripplannerapp:hotspots' %}">HotsPots</a></Hi>
             <li class="navList__route"><a href="{% url 'aztripplannerapp:userhotspots' %}">Your HotsPots</a></Hi>
             <li class="navList__route"><a href="{% url 'aztripplannerapp:itineraries' %}">Itineraries</a></li>
+            <li class="navList__route"><a href="{% url 'aztripplannerapp:logout' %}">Logout</a></li>
         {% else %}
             <li><a class="nav-link" href="{% url 'aztripplannerapp:login' %}">Login</a></li>
         {% endif %}
