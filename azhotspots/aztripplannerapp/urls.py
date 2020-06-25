@@ -1,7 +1,3 @@
-# from django.conf.urls import include
-# from django.conf import settings
-# from django.conf.urls.static import static
-# from django.views.defaults import *
 from django.urls import path, include
 from .views import *
 
@@ -12,7 +8,7 @@ urlpatterns = [
     path('accounts/', include('django.contrib.auth.urls')),
     path('logout/', logout_user, name='logout'),
     path('accounts/register/', register, name='register'),
-    path('accounts/login/', login_user, name='login'),
+    # path('search/', SearchResultsView, name='search_results'),
     path('', home, name='home'),
 
     path('hotspots/', hotspot_list, name='hotspots'),

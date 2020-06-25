@@ -16,8 +16,8 @@
     <a href="{% url 'aztripplannerapp:userhotspot_form' %}">Add New HotsPot</a>
 
     <ol class="userhotspots">
+    {% if request.user.is_authenticated %}
     {% for userhotspot in all_userhotspots %}
-    {% comment %} {%  for hotspot in all_hotspots %} {% endcomment %}
         <li class="userhotspot">
             <a class="userhotspots__name" href="{% url 'aztripplannerapp:userhotspot_details' userhotspot.id %}">
                  {{ userhotspot.hotspot.name }}
@@ -37,13 +37,11 @@
                 {{userhotspot.notes}}
             </p>
         </li>
-    {% comment %} <form action="{% url 'aztripplannerapp:userhotspots_edit_form' userhotspot.id %}" method="GET">
-        {% csrf_token %}
-        <button>Edit</button>
-    </form> {% endcomment %}
         <br>
     {% endfor %}
     </ol>
+    {% else %}
+    {% endif %}
 {% endblock %}
 
 {% block scripts %}

@@ -11,30 +11,24 @@
     {% endif %}
 
     <h3 class="page-header">Register</h3>
-    <div class="form-div">
         <form class="form" action="{% url 'aztripplannerapp:register' %}" method="POST">
-            {% csrf_token %}
-
-                <div class="input-div">
+        {% csrf_token %}
+            <fieldset>
                     <label for="username">Username: </label>
                     <input id="username" type="text" name="username">
-                </div>
+            </fieldset>
 
-                <div class="input-div">
+            <fieldset>
                     <label for="password">Password: </label>
                     <input id="password" type="password" name="password">
-                </div>
+            </fieldset>
 
-                <div class="input-div">
-                    <label for="password_confirmation">Password Confirmation: </label>
-                    <input id="password_confirmation" type="password" name="password_confirmation">
-                </div>
-
-                <div class="form-button-container">
-                    <button type="submit" class="register_ btn" value="Submit">Register</button>
-                </div>
+            <fieldset>
+                <label for="password_confirmation">Password Confirmation: </label>
+                <input id="password_confirmation" type="password" name="password_confirmation">
+            </fieldset>
+                <button type="submit" class="register_btn" value="Submit">Register</button>
         </form>
-    </div>
 {% endblock %}
 
 {% block scripts %}

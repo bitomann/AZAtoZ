@@ -10,8 +10,6 @@ from django.forms import ValidationError
 
 def register(request):
     form = UserCreationForm(request.POST)
-    # if form.is_valid():
-    #     form.save()
     if request.method == 'POST':
         form_data = request.POST
         
@@ -23,8 +21,6 @@ def register(request):
                 username=form_data['username'],
                 password=form_data['password'],
             )
-
-            form.save()
             
             user = authenticate(request, username=form_data['username'], password=form_data['password'])
             if user is not None:
@@ -34,7 +30,7 @@ def register(request):
             messages.error(request, e)
                 
     userregister = User.objects.all()
-    template = 'auth/register.html', {'form': form}
+    template = 'registration/register.html', {'form': form}
     context = {
         'userregister': userregister
     }

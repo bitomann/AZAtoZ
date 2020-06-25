@@ -8,7 +8,10 @@ from django.contrib.auth.decorators import login_required
 @login_required
 def userhotspot_list(request):
     if request.method == 'GET':
-        all_userhotspots = UserHotSpot.objects.select_related('hotspot')
+        # user = Itinerary.objects.filter(user=request.user)
+        all_userhotspots = UserHotSpot.objects.filter(itinerary__user=request.user).select_related('hotspot')
+        # 'itinerary__user' digs deeper into the database
+        # itinerary = Itinerary.objects.get(pk=itinerary_id)
         # "select_related" returns a QuerySet that will “follow” foreign-key relationships, 
         # selecting additional related-object data when it executes its query. 
         # This is a performance booster which results in a single more complex 
@@ -17,6 +20,8 @@ def userhotspot_list(request):
 
         template = 'userhotspots/list.html'
         context = {
+            # 'itinerary': itinerary,
+            # 'user': user,
             'all_userhotspots': all_userhotspots
         }
 
