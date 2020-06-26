@@ -4,24 +4,21 @@
     {% for hotspot in itinerary_hotspots %}
     <li>{{hotspot.notes}}</li>
     {% endfor %}
-    {% comment %} <section id="itinerary-details">
+    <section id="itinerary-details">
         <h1>{{ itinerary.name }}</h1>
-          <li class="hotspot">
-            <a class="hotspot__name" href="{% url 'aztripplannerapp:hotspot' hotspot.id %}">
-             {{ hotspot.name }}
-            </a>
-            <div class="hotspot__image">
-                {{hotspot.image}}
-            </div>
-            <p class="hotspot__description">
-                DESCRIPTION: {{hotspot.description}}
-            </p>
-            <p class="hotspot__activities">
-                THINGS TO DO HERE: {{hotspot.activities}}
-            </p>
-            <p class="hotspot__websiteurl">WEBSITE: 
-                {{hotspot.websiteurl}}
-            </p>
-        </li>
-    </section> {% endcomment %}
+        <form action="{% url 'aztripplannerapp:userhotspots' %}" method="post">
+        <fieldset>
+          <label for="hotspot_id">Choose A Hotspot: </label>
+            <select id="hotspot_id" name="hotspot_id">
+                {% for hotspot in all_hotspots %}
+                    <option value="{{ hotspot.id }}">{{hotspot.name}}</option>
+                {% endfor %}
+            </select>
+    {% csrf_token %}
+          <input hidden value='{{ itinerary.id }}' name='itinerary_id'/>
+          <input hidden value='EXISTING_HOTSPOT' name='conditional'/>
+          <input type="submit" value="Add" />
+        </fieldset>
+        </form>
+    </section>
 {% endblock %}

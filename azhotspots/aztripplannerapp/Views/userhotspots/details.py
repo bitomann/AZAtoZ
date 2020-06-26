@@ -38,7 +38,6 @@ def userhotspot_details(request, userhotspot_id):
             "actual_method" in form_data
             and form_data["actual_method"] == "DELETE"
         ):
-            print(userhotspot)
             userhotspot.delete()
 
             return redirect(reverse('aztripplannerapp:userhotspots'))
