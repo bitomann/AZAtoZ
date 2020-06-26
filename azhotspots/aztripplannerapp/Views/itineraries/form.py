@@ -20,12 +20,8 @@ def get_userhotspots():
 @login_required
 def itinerary_form(request):
     if request.method == 'GET':
-        all_hotspots = Itinerary.objects.filter(user_id=request.user.id)
-        user_itineraries = HotSpot.objects.all()
         template = 'itineraries/form.html'
         context = {
-            'all_hotspots': all_hotspots,
-            'user_itineraries': user_itineraries,
         }
 
         return render(request, template, context)

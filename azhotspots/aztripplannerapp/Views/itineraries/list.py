@@ -15,3 +15,14 @@ def itinerary_list(request):
         }
 
         return render(request, template, context)
+
+
+    elif request.method == 'POST':
+        
+        form_data = request.POST
+        new_itinerary = Itinerary.objects.create(
+            name = form_data['itinerary_name'],
+            user_id = request.user.id
+        )
+
+        return redirect(reverse('aztripplannerapp:itinerary', kwargs={'itinerary_id': new_itinerary.id}))

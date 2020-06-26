@@ -12,13 +12,8 @@
     {% endif %}
     {% csrf_token %}
         <fieldset>
-          <label for="hotspot">Choose A Hotspot: </label>
-            <select id="hotspot_id" name="hotspot_id">
-                {% for hotspot in user_itineraries %}
-                    <option  
-                    value="{{ hotspot.id }}">{{hotspot.name}}</option>
-                {% endfor %}
-          </select>
+          <label for="itinerary_name">Name of itinerary: </label>
+          <input id="itinerary_name" type="text" name="itinerary_name">
         </fieldset>
 
       <input type="submit" value="Submit" />
