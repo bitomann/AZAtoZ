@@ -30,21 +30,33 @@ def userhotspot_list(request):
     elif request.method == 'POST':
         
         form_data = request.POST
-        
-        new_hotspot = HotSpot.objects.create(
-            name = form_data['name'],
-            # image = form_data['image'],
-            description = form_data['description'],
-            activities = form_data['activities'],
-            websiteurl = form_data['websiteurl'],
-        )
+        if (
+            'conditional' in form_data and form_data
+            ['conditional'] == 'EXISTING_HOTSPOT'
+            ):
+            userhotspot_itinerary = UserHotSpot.objects.post(
+                hotspot_id = HotSpot.id,
+                itinerary_id = form_data['itinerary_id']
+            )
 
-        new_userhotspot = UserHotSpot.objects.create(
-            visited = form_data['visited'],
-            notes = form_data['notes'],
-            hotspot_id = new_hotspot.id,
-            itinerary_id = form_data['itinerary_id']
-        )
+            return redirect(reverse('aztripplannerapp:itinerary'))
+
+        else:
+        
+            new_hotspot = HotSpot.objects.create(
+                name = form_data['name'],
+                # image = form_data['image'],
+                description = form_data['description'],
+                activities = form_data['activities'],
+                websiteurl = form_data['websiteurl'],
+            )
+
+            new_userhotspot = UserHotSpot.objects.create(
+                visited = form_data['visited'],
+                notes = form_data['notes'],
+                hotspot_id = new_hotspot.id,
+                itinerary_id = form_data['itinerary_id']
+            )
         
 
-        return redirect(reverse('aztripplannerapp:userhotspots'))
+            return redirect(reverse('aztripplannerapp:userhotspots'))
