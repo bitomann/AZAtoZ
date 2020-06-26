@@ -20,7 +20,8 @@ urlpatterns = [
     path('userhotspots/form/<int:userhotspot_id>/', userhotspot_edit_form, name='userhotspots_edit_form'),
 
     path('itineraries/', itinerary_list, name='itineraries'),
-    path('itinerary/<int:itinerary_id>/', itinerary_details, name='itinerary'),
+    path('itineraries/<int:itinerary_id>/', itinerary_details, name='itinerary'),
+    path('itineraries/form', itinerary_form, name='itinerary_form'),
 ]
 # The <int:hotspot_id> part of that URL pattern is used to capture any integer that 
 # is the route parameter, and stores that number in the hotspot_id variable.

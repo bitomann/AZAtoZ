@@ -1,0 +1,26 @@
+{% extends 'shared/base.html' %}
+
+{% block content %}
+    <h1>Create A New Itinerary</h1>
+
+
+    {% if itinerary.id is not None %}
+        <form action="{% url 'aztripplannerapp:itineraries' itinerary.id %}" method="post">
+          <input type="hidden" name="actual_method" value="PUT">
+    {% else %}
+        <form action="{% url 'aztripplannerapp:itineraries' %}" method="post">
+    {% endif %}
+    {% csrf_token %}
+        <fieldset>
+          <label for="hotspot">Choose A Hotspot: </label>
+            <select id="hotspot_id" name="hotspot_id">
+                {% for hotspot in user_itineraries %}
+                    <option  
+                    value="{{ hotspot.id }}">{{hotspot.name}}</option>
+                {% endfor %}
+          </select>
+        </fieldset>
+
+      <input type="submit" value="Submit" />
+    </form>
+{% endblock %}
